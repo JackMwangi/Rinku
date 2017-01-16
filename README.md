@@ -6,7 +6,12 @@ STEP 1:
 Install dependencies using `npm i`
 
 STEP 2:
-Run the bot using this command: `token=YOUR_SLACK_API_TOKEN node bot.js`
+Create a .env file with an entry:
+
+>SLACK_API_TOKEN=your_slack_api_token
+
+STEP 3:
+Run the bot using this command: `npm start`
 
 STEP 3:
 Play with the bot on Slack!

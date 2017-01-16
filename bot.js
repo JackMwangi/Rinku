@@ -1,6 +1,4 @@
-if (!process.env.token) {
-  process.exit(1);
-}
+require('dotenv').config();
 
 const Botkit = require('botkit');
 
@@ -9,10 +7,8 @@ const controller = Botkit.slackbot({
 });
 
 controller.spawn({
-  token: process.env.token,
+  token: process.env.SLACK_API_TOKEN,
 }).startRTM();
-
-// here starts the action ---
 
 const { hears } = controller;
 
