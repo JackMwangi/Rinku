@@ -1,7 +1,14 @@
 require('dotenv').config();
 const Botkit = require('botkit');
+const mongoose = require('mongoose');
+
+const link = require('./models/link');
 const logger = require('./lib/logger')();
 const utils = require('./lib/utils')
+
+const dbUrl = process.env.MONGODB_REMOTE_URL;
+
+mongoose.connect(dbUrl);
 
 const controller = Botkit.slackbot({
   debug: true,

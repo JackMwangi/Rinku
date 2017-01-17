@@ -20,6 +20,7 @@
   "dependencies": {
     "botkit": "^0.4.9",
     "dotenv": "^4.0.0",
+    "mongoose": "^4.7.7"
     "linkifyjs": "^2.1.4",
     "winston": "^2.3.0"
   }
