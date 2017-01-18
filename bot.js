@@ -4,7 +4,7 @@ const logger = require('./lib/logger')();
 const utils = require('./lib/utils')
 
 const controller = Botkit.slackbot({
-  debug: true,
+  debug: false,
 });
 
 controller.spawn({
@@ -14,9 +14,7 @@ controller.spawn({
 const { hears } = controller;
 
 controller.on('ambient',function(bot,message) {
-  var textMessage = message.text.replace("<","").replace(">","");
-  var result = utils.matchUrl(textMessage)
-  logger.info(`matched==> : ${result}`);
+  utils.matchUrl(message)
 });
 
 hears(['hello'], 'direct_message,direct_mention,mention', (bot, message) => {
