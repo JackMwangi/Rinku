@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon bot.js",
+    "lint": "node_modules/eslint/bin/eslint.js --env node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +21,13 @@
   "dependencies": {
     "botkit": "^0.4.9",
     "dotenv": "^4.0.0",
-    "mongoose": "^4.7.7",
     "linkifyjs": "^2.1.4",
+    "mongoose": "^4.7.7",
     "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
