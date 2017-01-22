@@ -10,6 +10,7 @@
         "comma-spacing": 1,
         "space-in-parens": 1,
         "comma-dangle": 1,
-        "vars-on-top": 1
+        "vars-on-top": 1,
+        "no-shadow": 1
     }
 }

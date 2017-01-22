@@ -20,6 +20,7 @@
   "homepage": "https://github.com/JackMwangi/LinksBot#readme",
   "dependencies": {
     "botkit": "^0.4.9",
+    "botkit-storage-mongo": "^1.0.4",
     "dotenv": "^4.0.0",
     "linkifyjs": "^2.1.4",
     "mongoose": "^4.7.7",
