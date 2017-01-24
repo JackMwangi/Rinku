@@ -12,25 +12,31 @@ const controller = Botkit.slackbot({
   {
     clientId: process.env.APP_CLIENT_ID,
     clientSecret: process.env.APP_CLIENT_SECRET,
+    redirectUri: 'http://localhost:4200/links',
     scopes: ['bot'],
   }
 );
 
 controller.setupWebserver(3000, (err, webserver) => {
   controller.createWebhookEndpoints(controller.webserver);
+  controller.webserver.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
   controller.createOauthEndpoints(controller.webserver, (err, req, res) => {
     if (err) {
       res.status(500).send(`ERROR: ${err}`);
     } else {
-      res.send('Success!');
+      res.send('Success');
     }
   });
 });
 
 // just a simple way to make sure we don't
 // connect to the RTM twice for the same team
-var _bots = {};
+const _bots = {};
 function trackBot(bot) {
   _bots[bot.config.token] = bot;
 }
@@ -66,19 +72,19 @@ controller.hears(['hello'], 'direct_message,direct_mention,mention', (bot, messa
 
 controller.storage.teams.all((err, teams) => {
   if (err) {
-    throw new Error(err);
+    logger.error(`Error occurred: ${err}`);
   }
 
   // connect all teams with bots up to slack!
-  for (const team in teams) {
-    if (teams[team].bot) {
-      const bot = controller.spawn(teams[team]).startRTM((err) => {
+  teams.map((team) => {
+    if (team.bot) {
+      const bot = controller.spawn(team).startRTM((err) => {
         if (err) {
-          logger.warn(`Error connecting bot to Slack: ${err}`);
+          logger.error(`Error connecting bot to Slack: ${err}`);
         } else {
           trackBot(bot);
         }
       });
     }
-  }
+  });
 });
