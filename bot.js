@@ -12,12 +12,12 @@ const controller = Botkit.slackbot({
   {
     clientId: process.env.APP_CLIENT_ID,
     clientSecret: process.env.APP_CLIENT_SECRET,
-    redirectUri: 'http://localhost:4200/links',
+    redirectUri: process.env.OAUTH_REDIRECT_URI,
     scopes: ['bot'],
   }
 );
 
-controller.setupWebserver(3000, (err, webserver) => {
+controller.setupWebserver(process.env.PORT, (err, webserver) => {
   controller.createWebhookEndpoints(controller.webserver);
   controller.webserver.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
