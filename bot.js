@@ -19,7 +19,7 @@ const controller = Botkit.slackbot({
 
 controller.setupWebserver(process.env.PORT, (err, webserver) => {
   controller.createWebhookEndpoints(controller.webserver);
-  controller.webserver.use(function(req, res, next) {
+  controller.webserver.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
@@ -31,6 +31,14 @@ controller.setupWebserver(process.env.PORT, (err, webserver) => {
     } else {
       res.send('Success');
     }
+  });
+
+  controller.webserver.get('/links', (req, res) => {
+    const teamId = req.query.teamId;
+
+    utils.getTeamLinks(teamId, (links) => {
+      res.send(links);
+    });
   });
 });
 
