@@ -13,7 +13,7 @@ const controller = Botkit.slackbot({
     clientId: process.env.APP_CLIENT_ID,
     clientSecret: process.env.APP_CLIENT_SECRET,
     redirectUri: process.env.OAUTH_REDIRECT_URI,
-    scopes: ['bot'],
+    scopes: ['bot', 'incoming-webhook', 'commands', 'channels:read'],
   }
 );
 
