@@ -2,8 +2,11 @@ require('dotenv').config();
 const Botkit = require('botkit');
 const utils = require('./lib/utils');
 const logger = require('./lib/logger')();
+const bugsnag = require('bugsnag');
 
 const mongoStorage = require('botkit-storage-mongo')({ mongoUri: process.env.MONGODB_REMOTE_URL });
+
+bugsnag.register(process.env.BUGSNAG_API_TOKEN);
 
 const controller = Botkit.slackbot({
   debug: false,
