@@ -1,0 +1,39 @@
+{
+  "name": "linksbot",
+  "version": "1.0.0",
+  "description": "A bot to collect document links from slack",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon bot.js",
+    "lint": "node_modules/eslint/bin/eslint.js --env node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackMwangi/LinksBot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JackMwangi/LinksBot/issues"
+  },
+  "homepage": "https://github.com/JackMwangi/LinksBot#readme",
+  "dependencies": {
+    "botkit": "^0.4.9",
+    "botkit-storage-mongo": "^1.0.4",
+    "bugsnag": "^1.9.0",
+    "dotenv": "^4.0.0",
+    "linkifyjs": "^2.1.4",
+    "mongoose": "^4.7.7",
+    "superagent": "^3.4.1",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "engines": {
+    "node": "6.9.2"
+  }
+}
