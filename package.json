@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JackMwangi/LinksBot#readme",
   "dependencies": {
+    "alasql": "^0.3.7",
     "async": "^2.1.5",
     "botkit": "^0.4.9",
     "botkit-storage-mongo": "^1.0.4",

@@ -47,7 +47,6 @@ controller.setupWebserver(process.env.PORT, (err, webserver) => {
     });
   });
 
-
   controller.webserver.get('/channels', (req, res) => {
     const teamId = req.query.teamId;
 
