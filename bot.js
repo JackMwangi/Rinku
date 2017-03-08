@@ -38,8 +38,11 @@ controller.setupWebserver(process.env.PORT, (err, webserver) => {
 
   controller.webserver.get('/links', (req, res) => {
     const teamId = req.query.teamId;
+    const channel = req.query.channel;
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit);
 
-    utils.getTeamLinks(teamId, (links) => {
+    utils.getTeamLinksByChannel(teamId, channel, page, limit, (links) => {
       res.send(links);
     });
   });
