@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 
 const linkSchema = new Schema({
@@ -11,6 +11,8 @@ const linkSchema = new Schema({
   team: String,
   timestamp: Date,
 });
+
+linkSchema.plugin(mongoosePaginate);
 
 const Link = mongoose.model('Link', linkSchema);
 

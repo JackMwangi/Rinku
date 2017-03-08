@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JackMwangi/LinksBot#readme",
   "dependencies": {
+    "alasql": "^0.3.7",
     "async": "^2.1.5",
     "botkit": "^0.4.9",
     "botkit-storage-mongo": "^1.0.4",
@@ -27,6 +28,7 @@
     "linkifyjs": "^2.1.4",
     "metascraper": "^1.0.6",
     "mongoose": "^4.7.7",
+    "mongoose-paginate": "^5.0.3",
     "superagent": "^3.4.1",
     "winston": "^2.3.0"
   },
